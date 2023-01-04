@@ -88,6 +88,63 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// * functions to get random elements of the array
+
+function getRandomElements(arr, count) {
+  let result = [];
+  let shuffled = arr.slice().sort(() => 0.5 - Math.random());
+  for (let i = 0; i < count; i++) {
+    result.push(shuffled[i]);
+  }
+  return result;
+}
+
+var pwdLength = 0;
+var charTypes = 0;
+
+let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+let randomColors = getRandomElements(colors, 3);  // select 3 random colors
+console.log(randomColors);
+
+// prompt and input validator 
+
+function promptValid() {
+  const input = prompt("How long do you want your password to be (10 - 64):");
+
+  if (input >= 10 && input <= 64) {
+    // The input is valid
+    console.log('Valid input');
+    return input;
+  } else {
+    // The input is invalid
+    console.log('Invalid input');
+    alert("Invalid input! Please enter a number between 10 - 64.");
+    promptValid();
+  }
+}
+
+var pwdLength = promptValid();
+
+function charType() {
+  const input = prompt("How many types of charafcters do you want in your password (1 - 4):");
+
+  if (input >= 1 && input <= 4) {
+    // The input is valid
+    console.log('Valid input');
+    return input;
+  } else {
+    // The input is invalid
+    console.log('Invalid input');
+    alert("Invalid input! Please enter a number between 1 - 4.");
+    promptValid();
+  }
+}
+
+var charTypes = charType();
+
+console.log(pwdLength);
+console.log(charTypes);
+
 // Function to prompt user for password options
 function getPasswordOptions() {
 
