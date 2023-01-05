@@ -171,11 +171,11 @@ function generatePassword() {
     // console.log("password length you preferred: " + pwdLength);
     writePassword();
     var pwd = getRandom(charPool, pwdLength);
-    console.log("Here is the pwd you want: " + pwd.join(''));
+    // console.log("Here is the pwd you want: " + pwd.join(''));
     return pwd.join('');
   } else {
     var pwd = getRandom(charPool, pwdLength);
-    console.log("Here is the pwd you want: " + pwd.join(''));
+    // console.log("Here is the pwd you want: " + pwd.join(''));
     return pwd.join('');
   }
 }
