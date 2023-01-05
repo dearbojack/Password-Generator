@@ -100,12 +100,12 @@ function getPwdLength() {
   const input = prompt("How long do you want your password to be (10 - 64):");
 
   if (input >= 10 && input <= 64) {
-    // The input is valid
-    console.log('Valid input');
+    // when the input is valid, stop function, return pwdLength;
+    console.log('Valid input for pwd length: ' + input);
     return pwdLength = input;
   } else {
-    // The input is invalid
-    console.log('Invalid input');
+    // when the input is invalid, call the func again till we get valid input
+    console.log('Invalid input for pwd length.');
     alert("Invalid input! Please enter a number between 10 - 64.");
     getPwdLength();
   }
@@ -117,25 +117,19 @@ function getCharTypes() {
   const input = prompt("How many types of charafcters do you want in your password (1 - 4):");
 
   if (input >= 1 && input <= 4) {
-    // The input is valid
-    console.log('Valid input');
+    // when the input is valid, stop function, return charTypes;
+    console.log('Valid input for character types.');
     return charTypes = input;
   } else {
-    // The input is invalid
-    console.log('Invalid input');
+    // when the input is invalid, call the func again till we get valid input
+    console.log('Invalid input for character types.');
     alert("Invalid input! Please enter a number between 1 - 4.");
     getCharTypes();
   }
 }
 
-
-
-// console.log(pwdLength);
-// console.log(charTypes);
-
 // Function to prompt user for password options
 function getPasswordOptions() {
-
 }
 
 // Function for getting random elements from an array
@@ -147,9 +141,6 @@ function getRandom(arr, count) {
   }
   return result;
 }
-
-// test getRandom function
-// console.log(getRandom(specialCharacters, pwdLength))
 
 // Function to generate password with user input
 // 1. create an temporary array of user prefered char types
