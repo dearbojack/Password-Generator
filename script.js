@@ -138,7 +138,7 @@ function getPasswordOptions() {
 
 }
 
-// Function for getting a random element from an array
+// Function for getting random elements from an array
 function getRandom(arr, count) {
   let result = [];
   let shuffled = arr.slice().sort(() => 0.5 - Math.random());
@@ -152,6 +152,12 @@ function getRandom(arr, count) {
 // console.log(getRandom(specialCharacters, pwdLength))
 
 // Function to generate password with user input
+// 1. create an temporary array of user prefered char types
+// 2. get a random array of char types (user preferred numbers)
+// 3. the array we get is an array of arrays, so need to unwrap and concat them into an array of chars
+// 4. get pwdLength number of random chars from the array we get from last step
+// tada, that's the pwd we are looking for
+
 function generatePassword() {
   var characters = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters];
   var charArrayPool = getRandom(characters, charTypes);
