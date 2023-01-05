@@ -90,25 +90,11 @@ var upperCasedCharacters = [
 
 // * functions to get random elements of the array
 
-function getRandomElements(arr, count) {
-  let result = [];
-  let shuffled = arr.slice().sort(() => 0.5 - Math.random());
-  for (let i = 0; i < count; i++) {
-    result.push(shuffled[i]);
-  }
-  return result;
-}
 
-var pwdLength = 0;
-var charTypes = 0;
-
-let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-let randomColors = getRandomElements(colors, 3);  // select 3 random colors
-console.log(randomColors);
 
 // prompt and input validator 
 
-function promptValid() {
+function getPwdLength() {
   const input = prompt("How long do you want your password to be (10 - 64):");
 
   if (input >= 10 && input <= 64) {
@@ -119,13 +105,13 @@ function promptValid() {
     // The input is invalid
     console.log('Invalid input');
     alert("Invalid input! Please enter a number between 10 - 64.");
-    promptValid();
+    getPwdLength();
   }
 }
 
-var pwdLength = promptValid();
+// var pwdLength = getPwdLength();
 
-function charType() {
+function getCharTypes() {
   const input = prompt("How many types of charafcters do you want in your password (1 - 4):");
 
   if (input >= 1 && input <= 4) {
@@ -136,14 +122,14 @@ function charType() {
     // The input is invalid
     console.log('Invalid input');
     alert("Invalid input! Please enter a number between 1 - 4.");
-    promptValid();
+    getCharTypes();
   }
 }
 
-var charTypes = charType();
+// var charTypes = getCharTypes();
 
-console.log(pwdLength);
-console.log(charTypes);
+// console.log(pwdLength);
+// console.log(charTypes);
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -151,24 +137,47 @@ function getPasswordOptions() {
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
-
+function getRandom(arr, count) {
+  let result = [];
+  let shuffled = arr.slice().sort(() => 0.5 - Math.random());
+  for (let i = 0; i < count; i++) {
+    result.push(shuffled[i]);
+  }
+  return result;
 }
+
+// test getRandom function
+// console.log(getRandom(specialCharacters, pwdLength))
 
 // Function to generate password with user input
 function generatePassword() {
-
+  var characters = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters];
+  var charArrayPool = getRandom(characters, charTypes);
+  var charPool = [];
+  // console.log(charArrayPool);
+  for (let i = 0; i < charArrayPool.length; i++) {
+    charPool = [...charPool, ...charArrayPool[i]]
+  }
+  // console.log(charPool);
+  var pwd = getRandom(charPool, pwdLength);
+  // console.log(pwd.join(''));
+  return pwd.join('');
 }
+
+// generatePassword();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  var pwdLength = getPwdLength();
+  var charTypes = getCharTypes();
+
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
+  return passwordText.value = password;
 }
 
 // Add event listener to generate button
