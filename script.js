@@ -131,8 +131,13 @@ function getPasswordOptions() {
 
 // Function for getting random elements from an array
 function getRandom(arr, count) {
+  // an array to hold the result array
   let result = [];
+  // shuffle the elements in the array to a new array
+  // use slice() to avoid messing up the original array
+  // use sort() to shuffle the order of elements
   let shuffled = arr.slice().sort(() => 0.5 - Math.random());
+  // randomly select 'count' number of elements and add to the result array
   for (let i = 0; i < count; i++) {
     result.push(shuffled[i]);
   }
