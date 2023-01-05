@@ -190,7 +190,7 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
 
   // bonus: change button text and color after click
-  generateBtn.innerHTML = 'Regenerate';
+  generateBtn.innerHTML = 'Regenerate Password';
   generateBtn.style.backgroundColor = 'Purple';
 
   // retrun the generated pwd
