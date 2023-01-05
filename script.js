@@ -88,14 +88,11 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// * functions to get random elements of the array
-
-
-
-// prompt and input validator 
+// declare password options as global scope variables
 var pwdLength = 0;
 var charTypes = 0;
 
+// prompt and input validator 
 function getPwdLength() {
   const input = prompt("How long do you want your password to be (10 - 64):");
 
@@ -105,24 +102,22 @@ function getPwdLength() {
     return pwdLength = input;
   } else {
     // when the input is invalid, call the func again till we get valid input
-    console.log('Invalid input for pwd length.');
+    console.log('Invalid input for pwd length: ' + input);
     alert("Invalid input! Please enter a number between 10 - 64.");
     getPwdLength();
   }
 }
-
-
 
 function getCharTypes() {
   const input = prompt("How many types of charafcters do you want in your password (1 - 4):");
 
   if (input >= 1 && input <= 4) {
     // when the input is valid, stop function, return charTypes;
-    console.log('Valid input for character types.');
+    console.log('Valid input for character types: ' + input);
     return charTypes = input;
   } else {
     // when the input is invalid, call the func again till we get valid input
-    console.log('Invalid input for character types.');
+    console.log('Invalid input for character types: ' + input);
     alert("Invalid input! Please enter a number between 1 - 4.");
     getCharTypes();
   }
@@ -130,6 +125,8 @@ function getCharTypes() {
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  getPwdLength();
+  getCharTypes();
 }
 
 // Function for getting random elements from an array
@@ -170,9 +167,7 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var pwdLength = getPwdLength();
-  var charTypes = getCharTypes();
-
+  getPasswordOptions();
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
