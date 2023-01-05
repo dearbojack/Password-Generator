@@ -93,6 +93,8 @@ var upperCasedCharacters = [
 
 
 // prompt and input validator 
+var pwdLength = 0;
+var charTypes = 0;
 
 function getPwdLength() {
   const input = prompt("How long do you want your password to be (10 - 64):");
@@ -100,7 +102,7 @@ function getPwdLength() {
   if (input >= 10 && input <= 64) {
     // The input is valid
     console.log('Valid input');
-    return input;
+    return pwdLength = input;
   } else {
     // The input is invalid
     console.log('Invalid input');
@@ -109,7 +111,7 @@ function getPwdLength() {
   }
 }
 
-// var pwdLength = getPwdLength();
+
 
 function getCharTypes() {
   const input = prompt("How many types of charafcters do you want in your password (1 - 4):");
@@ -117,7 +119,7 @@ function getCharTypes() {
   if (input >= 1 && input <= 4) {
     // The input is valid
     console.log('Valid input');
-    return input;
+    return charTypes = input;
   } else {
     // The input is invalid
     console.log('Invalid input');
@@ -126,7 +128,7 @@ function getCharTypes() {
   }
 }
 
-// var charTypes = getCharTypes();
+
 
 // console.log(pwdLength);
 // console.log(charTypes);
