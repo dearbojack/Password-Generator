@@ -155,9 +155,21 @@ function generatePassword() {
     charPool = [...charPool, ...charArrayPool[i]]
   }
   // console.log(charPool);
-  var pwd = getRandom(charPool, pwdLength);
-  console.log("Here is the pwd you want: " + pwd.join(''));
-  return pwd.join('');
+
+  // if pwdLength > charPool.length, call writePassword() till valid
+  // else return the password
+
+  if (pwdLength > charPool.length) {
+    confirm("Sorry, not enough characters for the length of your preferred password. Please choose again.");
+    // console.log(charPool);
+    // console.log("available characters: " + charPool.length);
+    // console.log("password length you preferred: " + pwdLength);
+    writePassword();
+  } else {
+    var pwd = getRandom(charPool, pwdLength);
+    console.log("Here is the pwd you want: " + pwd.join(''));
+    return pwd.join('');
+  }
 }
 
 // Get references to the #generate element
