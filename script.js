@@ -161,7 +161,7 @@ function generatePassword() {
   }
   // console.log(charPool);
 
-  // if pwdLength > charPool.length, call writePassword() till valid
+  // if pwdLength > charPool.length, call writePassword() till valid and return pwd
   // else return the password
 
   if (pwdLength > charPool.length) {
@@ -169,10 +169,11 @@ function generatePassword() {
     // console.log(charPool);
     // console.log("available characters: " + charPool.length);
     // console.log("password length you preferred: " + pwdLength);
-    writePassword();
-    var pwd = getRandom(charPool, pwdLength);
+    return "Unable to generate. Please try again."
+    // writePassword();
+    // var pwd = getRandom(charPool, pwdLength);
     // console.log("Here is the pwd you want: " + pwd.join(''));
-    return pwd.join('');
+    // return pwd.join('');
   } else {
     var pwd = getRandom(charPool, pwdLength);
     // console.log("Here is the pwd you want: " + pwd.join(''));
