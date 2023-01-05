@@ -145,15 +145,13 @@ function getRandom(arr, count) {
 }
 
 // Function to generate password with user input
-// 1. create an temporary array of user prefered char types
-// 2. get a random array of char types (user preferred numbers)
-// 3. the array we get is an array of arrays, so need to unwrap and concat them into an array of chars
-// 4. get pwdLength number of random chars from the array we get from last step
-// tada, that's the pwd we are looking for
 
 function generatePassword() {
+  // 1. create an temporary array of user prefered char types
   var characters = [specialCharacters, numericCharacters, lowerCasedCharacters, upperCasedCharacters];
+  // 2. get a random array of char types (user preferred numbers)
   var charArrayPool = getRandom(characters, charTypes);
+  // 3. the array we get is an array of arrays, so need to unwrap and concat them into an array of chars
   var charPool = [];
   // console.log(charArrayPool);
   for (let i = 0; i < charArrayPool.length; i++) {
@@ -163,6 +161,7 @@ function generatePassword() {
 
   // if pwdLength > charPool.length, call writePassword() till valid and return pwd
   // else return the password
+  // ! bug here: random number of chars from the array does not guarantee there will be chosen number of types of chars in the pwd.
 
   if (pwdLength > charPool.length) {
     confirm("Sorry, not enough characters for the length of your preferred password. Please choose again.");
