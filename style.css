@@ -42,6 +42,24 @@ header {
   padding: 30px 40px;
 }
 
+.usage {
+  background-color: wheat;
+  /* font-style: italic; */
+  /* font-family: 'Courier New', Courier, monospace; */
+  /* border-radius: 5px; */
+  /* color: #f9fbfd; */
+  font-size: 0.8em;
+  padding: 10px;
+}
+
+.usage h4 {
+  /* padding: 10px; */
+  text-align: left;
+}
+.usage li {
+  padding: 5px;
+}
+
 .card-header::after {
   content: " ";
   display: block;
