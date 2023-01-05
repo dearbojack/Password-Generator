@@ -98,6 +98,7 @@ button[disabled] {
 }
 
 #password {
+  /* font-family:'Courier New', Courier, monospace; */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

@@ -156,21 +156,29 @@ function generatePassword() {
   }
   // console.log(charPool);
   var pwd = getRandom(charPool, pwdLength);
-  // console.log(pwd.join(''));
+  console.log("Here is the pwd you want: " + pwd.join(''));
   return pwd.join('');
 }
-
-// generatePassword();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  // get user input
   getPasswordOptions();
+
+  // generate password based on user input
   var password = generatePassword();
+
+  // write the generated password to html
   var passwordText = document.querySelector('#password');
 
+  // bonus: change button text and color after click
+  generateBtn.innerHTML = 'Regenerate';
+  generateBtn.style.backgroundColor = 'Purple';
+
+  // retrun the generated pwd
   return passwordText.value = password;
 }
 
